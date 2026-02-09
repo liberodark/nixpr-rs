@@ -1,0 +1,18 @@
+[github]
+# Optional: set a GitHub token for higher API rate limits (60/h → 5000/h)
+# token = "ghp_xxxxxxxxxxxx"
+
+[filters]
+excluded_users = ["r-ryantm"]
+
+excluded_prefixes = [
+    "nixos/",
+    "treewide",
+    "lib.",
+    "doc:",
+    "maintainers:",
+]
+
+[review]
+repo = "liberodark/nixpkgs-review-gha"
+workflow = "review.yml"
