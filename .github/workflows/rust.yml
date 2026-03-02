@@ -141,19 +141,19 @@ jobs:
         run: |
           Compress-Archive -Path "target/${{ matrix.target }}/release/nixpr${{ matrix.ext }}" -DestinationPath "nixpr-${{ env.VERSION }}-${{ matrix.name }}.zip"
       - name: Upload binary artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: nixpr-${{ matrix.name }}
           path: target/${{ matrix.target }}/release/nixpr${{ matrix.ext }}
       - name: Upload tarball artifact
         if: startsWith(github.ref, 'refs/tags/v') && runner.os != 'Windows'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: nixpr-${{ matrix.name }}-tarball
           path: nixpr-${{ env.VERSION }}-${{ matrix.name }}.tar.gz
       - name: Upload zip artifact
         if: startsWith(github.ref, 'refs/tags/v') && runner.os == 'Windows'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: nixpr-${{ matrix.name }}-zip
           path: nixpr-${{ env.VERSION }}-${{ matrix.name }}.zip
